@@ -17,11 +17,16 @@ public class Al02_09 {
 	// 서기 y년 m월 d일의 그 해 경과 일수를 구함
 	static int leftDayOfYear(int y, int m, int d) {
 		int year = isLeap(y);
+		int sum = 0;
 		while(m-1!=0) {
 		d +=mdays[year][m-1];
-		m--;
+		m--;}
+		for (int i = 0; i < 12; i++) {
+			sum += mdays[year][i];
 		}
-		d = 365-d;
+		
+		
+		d = sum-d;
 		return d;
 	}
 
